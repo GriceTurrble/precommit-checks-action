@@ -1,5 +1,6 @@
 name: "Pre-commit checks"
 description: "Runs pre-commit checks"
+author: "Galen Rice"
 inputs:
   python_version:
     description: "Python version to use."
@@ -17,17 +18,24 @@ runs:
         python-version: ${{ inputs.python_version }}
 
     - name: "Install pre-commit"
-      run: python -m pip install pre-commit==${{ inputs.pre_commit_version }}
-      shell: bash
+      run: |
+        python -m pip install pre-commit==${{ inputs.pre_commit_version }}
 
-    - run: python -m pip freeze --local
+        # Debug: show packages we installed
+        PACKAGES=$(python -m pip freeze --local)
+        echo "::debug::Packages installed:"
+        echo "::debug::${PACKAGES}"
       shell: bash
 
     - uses: actions/cache@v4
       with:
         path: ~/.cache/pre-commit
-        key: pre-commit-${{ inputs.pre_commit_version }}|${{ hashFiles('.pre-commit-config.yaml') }}
+        key: python-${{ inputs.python_version }}|pre-commit-${{ inputs.pre_commit_version }}|${{ hashFiles('.pre-commit-config.yaml') }}
 
     - name: "Run pre-commit checks"
-      run: pre-commit run --show-diff-on-failure --color=always
+      run: pre-commit run --show-diff-on-failure --all-files --color=always
       shell: bash
+
+branding:
+  icon: "check-circle"
+  color: "orange"
