@@ -5,7 +5,7 @@ allowing you to use your pre-commit hooks as a continuous integration check.
 
 ## Usage
 
-Include the following in a GitHub Action workflow:
+Include `precommit-checks-action` in a GitHub Actions workflow:
 
 ```yaml
 # .github/workflows/ci.yaml
