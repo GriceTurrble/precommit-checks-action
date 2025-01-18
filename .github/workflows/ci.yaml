@@ -18,4 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: griceturrble/precommit-checks-action@v1
+      # When dogfooding ourselves, target main branch to avoid chasing tags
+      - uses: griceturrble/precommit-checks-action@main
