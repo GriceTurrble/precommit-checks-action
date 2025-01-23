@@ -30,7 +30,7 @@ jobs:
           # Version of Python to use when installing pre-commit
           python_version: "3.12"
           # Version of pre-commit to install
-          pre_commit_version: "4.0.1"
+          pre_commit_version: "4.1.0"
 ```
 
 The action is a simple call to `pre-commit run --all-files`.
