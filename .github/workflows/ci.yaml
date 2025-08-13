@@ -19,6 +19,6 @@ jobs:
     name: Precommit checks
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       # When dogfooding ourselves, target main branch to avoid chasing tags
       - uses: griceturrble/precommit-checks-action@main
