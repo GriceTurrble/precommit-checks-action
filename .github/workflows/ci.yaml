@@ -18,7 +18,12 @@ jobs:
   precommit:
     name: Precommit checks
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v5
       # When dogfooding ourselves, target main branch to avoid chasing tags
       - uses: griceturrble/precommit-checks-action@main
+        with:
+          suggest_fixes: "true"
