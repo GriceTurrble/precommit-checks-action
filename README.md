@@ -56,27 +56,45 @@ All inputs are optional with appropriate defaults:
 
 ## Auto-suggesting fixes
 
-If your pre-commit checks are configured to auto-fix issues
-and the `suggest_fixes` option is set to `"true"`,
-fixes will appear as a PR review with suggested changes in their comments
-using a call to [reviewdog/action-suggester].
+If your pre-commit checks are configured to auto-fix issues,
+you may set the `suggest_fixes` option to `"true"`
+to have the workflow suggest those changes as review comments on your PR.
 
-Note this can only suggest changes to lines that are within the scope of the PR.
-If your linters fail on files or lines outside the PR's scope
-(lines that a reviewer cannot comment on within the PR),
-these cannot be marked as suggested changes;
-instead, you will want to run linters manually to address those changes.
+> [!note]
+> This requires `contents: write` and `pull-requests: write` permissions for the workflow
+> in order to write changes to the GitHub Action runner's file system
+> and to write review comments on a PR.
 
-### Required permissions
-
-The following permissions are **required** if the `suggest_fixes` option is set to `"true"`:
+A complete sample of a working job with this option enabled looks like so:
 
 ```yaml
-permissions:
-  # Ability to write pre-commit changes to the GitHub Action runner's file system:
-  contents: write
-  # Ability to make changes to a Pull Request, such as adding a review and comments:
-  pull-requests: write
+jobs:
+  pre-commit-check:
+    runs-on: ubuntu-latest
+    # Elevating permissions for `contents` and `pull-requests` required
+    # when using the `suggest_fixes` option:
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: griceturrble/precommit-checks-action@v2
+        with:
+          suggest_fixes: "true"
 ```
+
+### Limitations
+
+- Just as with a normal PR review,
+  changes can only be suggested on lines within the scope of the PR.
+  If your pre-commit checks make changes to lines or files outside that scope,
+  you will need to address them manually.
+
+- Any and all changes made be the workflow job will become suggested edits.
+  If you mix in other work in the same workflow that makes file changes,
+  you may find suggestions unrelated to your pre-commit checks.
+  - If you find this to be a helpful side effect for you,
+    consider making a more explicit workflow that makes use of
+    [reviewdog/action-suggester] directly.
 
 [reviewdog/action-suggester]: https://github.com/reviewdog/action-suggester
