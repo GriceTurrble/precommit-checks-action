@@ -18,6 +18,10 @@ jobs:
   precommit:
     name: Precommit checks
     runs-on: ubuntu-latest
+    # - Run on all non-PR events we subscribe to.
+    # - DON'T run on draft PRs.
+    # - DON'T run if the PR has "[draft]" in its title
+    #   (we use this, for instance, in private repos that don't have access to "real" draft PRs)
     if: ${{ !github.event.pull_request || !github.event.pull_request.draft || !contains(github.event.pull_request.title, '[draft]') }}
     permissions:
       contents: write
