@@ -18,6 +18,7 @@ jobs:
   precommit:
     name: Precommit checks
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request || !github.event.pull_request.draft || !contains(github.event.pull_request.title, '[draft]') }}
     permissions:
       contents: write
       pull-requests: write
