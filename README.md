@@ -83,6 +83,9 @@ jobs:
           suggest_fixes: "true"
 ```
 
+For more on working with suggested changes in a PR,
+see GitHub docs: [Applying suggested changes](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request#applying-suggested-changes).
+
 ### Limitations
 
 - Just as with a normal PR review,
