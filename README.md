@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: griceturrble/precommit-checks-action@v2
+      - uses: griceturrble/precommit-checks-action@v3
 ```
 
 The action is a simple call to `pre-commit run --all-files`.
@@ -44,8 +44,8 @@ All inputs are optional with appropriate defaults:
 | Name                 | Description                                                                                          | Default        |
 | -------------------- | ---------------------------------------------------------------------------------------------------- | -------------- |
 | `token`              | Token to use for authenticating to GitHub.                                                           | `GITHUB_TOKEN` |
-| `python_version`[^1] | Version of Python to use when installing pre-commit                                                  | `"3.13"`       |
-| `pre_commit_version` | Version of pre-commit to install                                                                     | `"4.3.0"`      |
+| `python_version`[^1] | Version of Python to use when installing pre-commit                                                  | `"3.14"`       |
+| `pre_commit_version` | Version of pre-commit to install                                                                     | `"4.4.0"`      |
 | `suggest_fixes`      | Whether to create a PR review suggesting fixes if pre-commit checks fail (set to `"true"` to enable) | `"false"`      |
 
 [^1]:
@@ -78,7 +78,7 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v5
-      - uses: griceturrble/precommit-checks-action@v2
+      - uses: griceturrble/precommit-checks-action@v3
         with:
           suggest_fixes: "true"
 ```

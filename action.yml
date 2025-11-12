@@ -7,10 +7,10 @@ inputs:
     default: ${{ github.token }}
   python_version:
     description: "Version of Python to use when installing pre-commit"
-    default: "3.13"
+    default: "3.14"
   pre_commit_version:
     description: "Version of pre-commit to install"
-    default: "4.3.0"
+    default: "4.4.0"
   suggest_fixes:
     description: "Whether to create a PR review suggesting fixes if pre-commit checks fail"
     default: "false"
