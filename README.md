@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: griceturrble/precommit-checks-action@v2
+      - uses: griceturrble/precommit-checks-action@v3
 ```
 
 The action is a simple call to `pre-commit run --all-files`.
@@ -78,7 +78,7 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v5
-      - uses: griceturrble/precommit-checks-action@v2
+      - uses: griceturrble/precommit-checks-action@v3
         with:
           suggest_fixes: "true"
 ```
