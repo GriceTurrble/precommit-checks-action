@@ -22,7 +22,7 @@ jobs:
   pre-commit-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: griceturrble/precommit-checks-action@v3
 ```
 
@@ -77,7 +77,7 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: griceturrble/precommit-checks-action@v3
         with:
           suggest_fixes: "true"
