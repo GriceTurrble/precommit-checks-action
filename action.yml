@@ -33,7 +33,7 @@ runs:
         echo "::debug::Packages installed:"
         echo "::debug::${PACKAGES}"
 
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: ~/.cache/pre-commit
         key: python-${{ inputs.python_version }}|pre-commit-${{ inputs.pre_commit_version }}|${{ hashFiles('.pre-commit-config.yaml') }}
