@@ -10,7 +10,7 @@ inputs:
     default: "3.14"
   pre_commit_version:
     description: "Version of pre-commit to install"
-    default: "4.5.0"
+    default: "4.5.1"
   suggest_fixes:
     description: "Whether to create a PR review suggesting fixes if pre-commit checks fail"
     default: "false"
