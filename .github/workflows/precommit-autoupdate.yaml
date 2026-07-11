@@ -15,7 +15,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: griceturrble/precommit-autoupdate-action@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+      - uses: griceturrble/precommit-autoupdate-action@2c412d5dbc31c544c21af10a415b58040483b788 # v4
         with:
           pr_title: "[Draft] pre-commit autoupdate"
