@@ -17,8 +17,17 @@ repos:
   - repo: local
     hooks:
       # Requires GITHUB_TOKEN env var to avoid API rate limits
+
       - id: pin-github-action
-        name: pin-github-action-shas
+        name: pin GHA SHAs in main action
+        language: node
+        entry: pin-github-action
+        additional_dependencies: ["pin-github-action"]
+        files: ^action.ya?ml
+        types_or: [yaml]
+
+      - id: pin-github-action
+        name: pin GHA SHAs in workflows
         language: node
         entry: pin-github-action
         additional_dependencies: ["pin-github-action"]
