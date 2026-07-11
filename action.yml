@@ -19,7 +19,7 @@ runs:
   using: "composite"
   steps:
     - name: "Setup Python"
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
       with:
         python-version: ${{ inputs.python_version }}
 
@@ -33,7 +33,7 @@ runs:
         echo "::debug::Packages installed:"
         echo "::debug::${PACKAGES}"
 
-    - uses: actions/cache@v6
+    - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
       with:
         path: ~/.cache/pre-commit
         key: python-${{ inputs.python_version }}|pre-commit-${{ inputs.pre_commit_version }}|${{ hashFiles('.pre-commit-config.yaml') }}
@@ -46,7 +46,7 @@ runs:
 
     - name: "Create PR review suggestions with reviewdog"
       if: ${{ github.event.pull_request && inputs.suggest_fixes == 'true' }}
-      uses: reviewdog/action-suggester@v1
+      uses: reviewdog/action-suggester@2558ba17e65a9039e73764a73009fc05fef28a46 # v1
       with:
         github_token: ${{ inputs.token }}
         tool_name: "pre_commit_checks"
