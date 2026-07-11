@@ -29,6 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       # When dogfooding ourselves, target main branch to avoid chasing tags
-      - uses: griceturrble/precommit-checks-action@e96b354d316b7bac28438cb50b3c3af40abea846 # main
+      # (excluded from pin-github-action via --allow, see .pre-commit-config.yaml)
+      - uses: griceturrble/precommit-checks-action@main
         with:
           suggest_fixes: "true"
