@@ -30,6 +30,7 @@ repos:
         name: pin GHA SHAs in workflows
         language: node
         entry: pin-github-action
+        args: ["--allow", "griceturrble/precommit-checks-action"]
         additional_dependencies: ["pin-github-action"]
         files: ^\.github/workflows/
         types_or: [yaml]
