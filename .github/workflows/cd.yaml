@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: griceturrble/github-actions-cd-action@b09deb99c5fc89c5644feb3a30f28ed1a32536d7 # v1
+      - uses: griceturrble/github-actions-cd-action@cc40d1d73b2260a8699aff286dd7f97b995fc120 # v1
