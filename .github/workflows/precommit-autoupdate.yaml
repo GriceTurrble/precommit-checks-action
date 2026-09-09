@@ -16,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: griceturrble/precommit-autoupdate-action@2c412d5dbc31c544c21af10a415b58040483b788 # v4
+      - uses: griceturrble/precommit-autoupdate-action@301af7e8305b5c2969f3604843e8e55dc7db0e26 # v4
         with:
           pr_title: "[Draft] pre-commit autoupdate"
