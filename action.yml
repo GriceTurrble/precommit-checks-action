@@ -46,7 +46,7 @@ runs:
 
     - name: "Create PR review suggestions with reviewdog"
       if: ${{ github.event.pull_request && inputs.suggest_fixes == 'true' }}
-      uses: reviewdog/action-suggester@2558ba17e65a9039e73764a73009fc05fef28a46 # v1
+      uses: reviewdog/action-suggester@c387862ad6765a9729f2b40ee4d8b5769f2145c7 # v1
       with:
         github_token: ${{ inputs.token }}
         tool_name: "pre_commit_checks"
